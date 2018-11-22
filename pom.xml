@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.sixpointsix</groupId>
     <artifactId>spring-boot-jdbi-starter</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <description>JDBI Library for spring boot</description>
 
     <url>https://github.com/6point6/spring-boot-jwt</url>
@@ -256,7 +254,7 @@
         <url>https://github.com/6point6/spring-boot-jdbi</url>
         <connection>scm:git:ssh://git@github.com/6point6/spring-boot-jdbi.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/6point6/spring-boot-jdbi.git</developerConnection>
-        <tag>1.0.0</tag>
+        <tag>spring-boot-jdbi-starter-0.1.0</tag>
     </scm>
 
     <developers>

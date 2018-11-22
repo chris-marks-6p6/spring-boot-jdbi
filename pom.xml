@@ -6,6 +6,7 @@
     <artifactId>spring-boot-jdbi-starter</artifactId>
     <version>0.2.0-SNAPSHOT</version>
     <description>JDBI Library for spring boot</description>
+    <name>Spring Boot JDBI Library</name>
 
     <url>https://github.com/6point6/spring-boot-jwt</url>
     <inceptionYear>2018</inceptionYear>

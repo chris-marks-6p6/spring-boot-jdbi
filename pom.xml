@@ -4,7 +4,7 @@
 
     <groupId>net.sixpointsix</groupId>
     <artifactId>spring-boot-jdbi-starter</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.2.0</version>
     <description>JDBI Library for spring boot</description>
     <name>Spring Boot JDBI Library</name>
 
@@ -258,7 +258,7 @@
         <url>https://github.com/6point6/spring-boot-jdbi</url>
         <connection>scm:git:ssh://git@github.com/6point6/spring-boot-jdbi.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/6point6/spring-boot-jdbi.git</developerConnection>
-        <tag>1.0.0</tag>
+        <tag>spring-boot-jdbi-starter-0.2.0</tag>
     </scm>
 
     <developers>

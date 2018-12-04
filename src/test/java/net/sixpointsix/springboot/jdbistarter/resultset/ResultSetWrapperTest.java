@@ -48,7 +48,7 @@ class ResultSetWrapperTest {
         when(resultSet.findColumn("a_value")).thenReturn(1);
         when(resultSet.getInt(1)).thenReturn(25);
 
-        assertEquals(25, wrapper.getInt("time"));
+        assertEquals(25, wrapper.getInt("value"));
     }
 
     @Test
@@ -57,7 +57,7 @@ class ResultSetWrapperTest {
         when(resultSet.findColumn("a_value")).thenReturn(1);
         when(resultSet.getFloat(1)).thenReturn(10f);
 
-        assertEquals(10f, wrapper.getFloat("time"));
+        assertEquals(10f, wrapper.getFloat("value"));
     }
 
     @Test
@@ -66,7 +66,7 @@ class ResultSetWrapperTest {
         when(resultSet.findColumn("a_value")).thenReturn(1);
         when(resultSet.getLong(1)).thenReturn(10L);
 
-        assertEquals(10L, wrapper.getLong("time"));
+        assertEquals(10L, wrapper.getLong("value"));
     }
 
     @Test
@@ -75,6 +75,6 @@ class ResultSetWrapperTest {
         when(resultSet.findColumn("a_value")).thenReturn(1);
         when(resultSet.getDouble(1)).thenReturn(10d);
 
-        assertEquals(10d, wrapper.getDouble("time"));
+        assertEquals(10d, wrapper.getDouble("value"));
     }
 }

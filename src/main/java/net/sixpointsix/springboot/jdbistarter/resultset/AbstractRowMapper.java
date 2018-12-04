@@ -31,8 +31,32 @@ abstract public class AbstractRowMapper<T> implements RowMapper<T> {
 
     @Override
     public T map(ResultSet rs, StatementContext ctx) throws SQLException {
-        ResultSetWrapper rsw = new ResultSetWrapper(rs, prefix);
+        ResultSetWrapper rsw = getResultSetWrapper(rs, getPrefix());
 
         return map(rsw);
+    }
+
+    /**
+     * Get the prefix for the columns
+     *
+     * This method can be overridden if the prefix is not set in the constructor
+     *
+     * @return prefix
+     */
+    protected String getPrefix() {
+        return prefix;
+    }
+
+    /**
+     * Get the result set
+     *
+     * This method can be overridden to allow a custom result set wrapper to be
+     * used
+     *
+     * @param resultSet SQL result set
+     * @return Result set wrapper
+     */
+    protected ResultSetWrapper getResultSetWrapper(ResultSet resultSet, String prefix) {
+        return new SimpleResultSetWrapper(resultSet, prefix);
     }
 }

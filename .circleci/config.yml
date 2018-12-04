@@ -1,28 +1,5 @@
 version: 2
 jobs:
-  java8:
-    docker:
-      - image: circleci/openjdk:8-jdk
-    working_directory: ~/repo
-
-    environment:
-      MAVEN_OPTS: -Xmx1024m -XX:MaxPermSize=256m
-
-    steps:
-    - checkout
-
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "pom.xml" }}
-        - v1-dependencies-
-
-    - run: mvn dependency:go-offline
-
-    - save_cache:
-        paths:
-        - ~/.m2
-        key: v1-dependencies-{{ checksum "pom.xml" }}
-    - run: mvn test
 
   java11:
     docker:
@@ -48,35 +25,8 @@ jobs:
         key: v1-dependencies-{{ checksum "pom.xml" }}
     - run: mvn test
 
-  java10:
-    docker:
-    - image: circleci/openjdk:10-jdk
-    working_directory: ~/repo
-
-    environment:
-      MAVEN_OPTS: -Xmx1024m -XX:MaxPermSize=256m
-
-    steps:
-    - checkout
-
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "pom.xml" }}
-        - v1-dependencies-
-
-    - run: mvn dependency:go-offline
-
-    - save_cache:
-        paths:
-        - ~/.m2
-        key: v1-dependencies-{{ checksum "pom.xml" }}
-    - run: mvn test
-
-
 workflows:
   version: 2
   build:
     jobs:
-    - java8
-    - java10
     - java11

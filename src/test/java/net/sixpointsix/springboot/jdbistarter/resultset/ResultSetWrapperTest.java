@@ -133,4 +133,30 @@ class ResultSetWrapperTest {
 
         assertFalse(wrapper.getOptionalDouble("value").isPresent());
     }
+
+    @Test
+    void getBoolean() throws SQLException {
+        when(resultSet.findColumn("value")).thenThrow(SQLException.class);
+        when(resultSet.findColumn("a_value")).thenReturn(1);
+        when(resultSet.getBoolean(1)).thenReturn(true);
+
+        assertTrue(wrapper.getBoolean("value"));
+    }
+
+    @Test
+    void getOptionalBoolean() throws SQLException {
+        when(resultSet.findColumn("value")).thenThrow(SQLException.class);
+        when(resultSet.findColumn("a_value")).thenReturn(1);
+        when(resultSet.getBoolean(1)).thenReturn(true);
+
+        assertTrue(wrapper.getOptionalBoolean("value").get());
+    }
+
+    @Test
+    void getOptionalBooleanNotPresent() throws SQLException {
+        when(resultSet.findColumn("value")).thenThrow(SQLException.class);
+        when(resultSet.findColumn("a_value")).thenThrow(SQLException.class);
+
+        assertFalse(wrapper.getOptionalBoolean("value").isPresent());
+    }
 }

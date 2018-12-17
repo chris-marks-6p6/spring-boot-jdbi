@@ -166,4 +166,20 @@ public interface ResultSetWrapper {
      * @return double value
      */
     Optional<Double> getOptionalDouble(String column);
+
+    /**
+     * Get a boolean from the result set
+     * @param column column name
+     * @return boolean value
+     * @throws SQLException thrown if data is invalid
+     */
+    Boolean getBoolean(String column) throws SQLException;
+
+    /**
+     * Get boolean value
+     *
+     * @param column column name
+     * @return boolean value
+     */
+    Optional<Boolean> getOptionalBoolean(String column);
 }

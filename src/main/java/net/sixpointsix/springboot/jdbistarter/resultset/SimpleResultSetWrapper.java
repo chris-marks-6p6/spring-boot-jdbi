@@ -319,6 +319,34 @@ public class SimpleResultSetWrapper implements ResultSetWrapper {
     }
 
     /**
+     * Get a boolean from the result set
+     * @param column column name
+     * @return boolean value
+     * @throws SQLException thrown if data is invalid
+     */
+    @Override
+    public Boolean getBoolean(String column) throws SQLException {
+        return resultSet.getBoolean(getColumn(column));
+    }
+
+    /**
+     * Get boolean value
+     *
+     * @param column column name
+     * @return boolean value
+     */
+    @Override
+    public Optional<Boolean> getOptionalBoolean(String column) {
+        try {
+            return Optional.ofNullable(getBoolean(column));
+        } catch (SQLException|ColumnNotFoundException e) {
+            logger.debug("Column {} not found", column, e);
+
+            return Optional.empty();
+        }
+    }
+
+    /**
      * Get the prefix for the columns
      *
      * This method can be overridden if the prefix is not set in the constructor

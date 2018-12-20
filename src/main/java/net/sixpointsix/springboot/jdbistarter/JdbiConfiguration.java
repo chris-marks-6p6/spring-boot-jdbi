@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 
 import javax.sql.DataSource;
@@ -58,36 +59,42 @@ public class JdbiConfiguration {
 
     @Bean
     @ConditionalOnClass(SqlObjectPlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.sqlobject", havingValue = "true", matchIfMissing = true)
     public SqlObjectProvider getSqlObjectPlugin() {
         return new SqlObjectProvider();
     }
 
     @Bean
     @ConditionalOnClass(GuavaPlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.guava", havingValue = "true", matchIfMissing = true)
     public GuavaProvider getGuavaPlugin() {
         return new GuavaProvider();
     }
 
     @Bean
     @ConditionalOnClass(KotlinPlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.kotlin", havingValue = "true", matchIfMissing = true)
     public KotlinProvider getKotlinPlugin() {
         return new KotlinProvider();
     }
 
     @Bean
     @ConditionalOnClass(KotlinSqlObjectPlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.kotlinobject", havingValue = "true", matchIfMissing = true)
     public KotlinObjectProvider getKotlinObjectProvider() {
         return new KotlinObjectProvider();
     }
 
     @Bean
     @ConditionalOnClass(JodaTimePlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.jodatime", havingValue = "true", matchIfMissing = true)
     public JodaTime2Provider getJodaTimeProvider() {
         return new JodaTime2Provider();
     }
 
     @Bean
     @ConditionalOnClass(PostgresPlugin.class)
+    @ConditionalOnProperty(value = "6point6.jdbi.plugin.postgres", havingValue = "true", matchIfMissing = true)
     public PostgresPluginProvider getPostgresPlugin() {
         return new PostgresPluginProvider();
     }

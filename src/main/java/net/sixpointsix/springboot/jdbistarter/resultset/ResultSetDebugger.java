@@ -21,7 +21,7 @@ public class ResultSetDebugger {
         ResultSetMetaData meta = rs.getMetaData();
         List<String> cols = new ArrayList<>();
 
-        for(int i = 1; i < meta.getColumnCount(); i++) {
+        for(int i = 1; i <= meta.getColumnCount(); i++) {
             cols.add(meta.getColumnName(i));
         }
 
@@ -36,5 +36,34 @@ public class ResultSetDebugger {
      */
     public static List<String> getColumns(ResultSetWrapper rsw) throws SQLException {
         return getColumns(rsw.getResultSet());
+    }
+
+    /**
+     * Get the columns from a result set
+     * @param rs result set
+     * @return List of column
+     * @throws SQLException
+     */
+    public static List<String> getResults(ResultSet rs) throws SQLException {
+        ResultSetMetaData meta = rs.getMetaData();
+        List<String> cols = new ArrayList<>();
+
+        for(int i = 1; i <= meta.getColumnCount(); i++) {
+            String label = meta.getColumnLabel(i);
+            Object value = rs.getObject(i);
+            cols.add(label + " = " + value);
+        }
+
+        return cols;
+    }
+
+    /**
+     * Get the columns from a result set
+     * @param rsw result set wrapper
+     * @return List of column
+     * @throws SQLException
+     */
+    public static List<String> getResults(ResultSetWrapper rsw) throws SQLException {
+        return getResults(rsw.getResultSet());
     }
 }

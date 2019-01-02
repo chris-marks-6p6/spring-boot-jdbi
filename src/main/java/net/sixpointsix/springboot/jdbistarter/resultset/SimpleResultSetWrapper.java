@@ -365,8 +365,8 @@ public class SimpleResultSetWrapper implements ResultSetWrapper {
      */
     @NotNull
     private int getColumn(String name) {
-        return findColumn(name)
-                .orElseGet(() -> findColumn(getPrefix() + "_" + name)
+        return findColumn(getPrefix() + "_" + name)
+                .orElseGet(() -> findColumn(name)
                         .orElseThrow(() -> new ColumnNotFoundException("Column " + name + " is not in result set with prefix " + prefix)));
     }
 

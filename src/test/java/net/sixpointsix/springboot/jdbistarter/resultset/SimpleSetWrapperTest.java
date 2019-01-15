@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class ResultSetWrapperTest {
+class SimpleSetWrapperTest {
 
     ResultSet resultSet;
     ResultSetWrapper wrapper;

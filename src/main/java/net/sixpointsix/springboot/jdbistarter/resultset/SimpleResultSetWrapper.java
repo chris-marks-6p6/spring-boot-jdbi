@@ -52,9 +52,13 @@ public class SimpleResultSetWrapper implements ResultSetWrapper {
     @Override
     public Optional<UUID> getOptionalUuid(String column) {
         try {
-            return Optional.ofNullable(getUuid(column));
-        } catch (SQLException|ColumnNotFoundException e) {
+            return getOptionalString(column).map(UUID::fromString);
+        } catch (ColumnNotFoundException e) {
             logger.debug("Column {} not found", column, e);
+
+            return Optional.empty();
+        } catch (IllegalArgumentException e) {
+            logger.debug("Value is not a uuid", column, e);
 
             return Optional.empty();
         }

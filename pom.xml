@@ -22,8 +22,8 @@
         <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <slf4j.version>1.7.25</slf4j.version>
 
-        <junit.version>5.3.1</junit.version>
-        <mockito.version>2.21.0</mockito.version>
+        <junit.version>5.3.2</junit.version>
+        <mockito.version>2.23.4</mockito.version>
         <surefire.version>2.22.1</surefire.version>
 
     </properties>

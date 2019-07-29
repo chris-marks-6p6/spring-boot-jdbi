@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -99,6 +100,21 @@ public interface ResultSetWrapper {
      * @return big int value
      */
     Optional<BigInteger> getOptionalBigInteger(String column);
+    
+    /**
+     * Get a big decimal
+     * @param column to search
+     * @return big decimal value
+     * @throws SQLException thrown if data is invalid
+     */
+    BigDecimal getBigDecimal(String column) throws SQLException;
+
+    /**
+     * Get a big decimal
+     * @param column to search
+     * @return big decimal value
+     */
+    Optional<BigDecimal> getOptionalBigDecimal(String column);
 
     /**
      * Get the original result set for further processing

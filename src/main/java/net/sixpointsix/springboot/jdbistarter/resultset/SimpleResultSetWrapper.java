@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -199,7 +200,37 @@ public class SimpleResultSetWrapper implements ResultSetWrapper {
             return Optional.empty();
         }
     }
+    
+    /**
+     * Get a bigdecimal   
+     * @param column to search
+     * @return get big decimal value
+     * @throws SQLException thrown if data is invalid
+     */
+    @Override
+    public BigDecimal getBigDecimal(String column) throws SQLException {
+    	
+        return resultSet.getBigDecimal(getColumn(column));
 
+    }
+
+    /**
+     * Get an optional bigdecimal    
+     * @param column to search
+     * @return get big decimal value
+     */
+    @Override
+    public Optional<BigDecimal> getOptionalBigDecimal(String column) {
+        
+    	try {
+            return Optional.ofNullable(getBigDecimal(column));
+        } catch (SQLException|ColumnNotFoundException e) {
+            logger.debug("Column {} not found", column, e);
+            return Optional.empty();
+        }
+    	
+    }
+        
     /**
      * Get the raw result set
      * @return raw result set
